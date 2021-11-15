@@ -24,7 +24,7 @@ func NewStaticConditionsController(
 	return &staticConditionsController{
 		Controller: factory.New().
 			WithSync(func(ctx context.Context, controllerContext factory.SyncContext) error {
-				_, _, err := v1helpers.UpdateStatus(ctx, operatorClient, updates...)
+				_, _, err := v1helpers.UpdateStatus(operatorClient, updates...)
 				return err
 			}).
 			WithInformers(operatorClient.Informer()).
